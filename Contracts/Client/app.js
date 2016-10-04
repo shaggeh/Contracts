@@ -1,0 +1,1 @@
+﻿var app = angular.module("contracts", ["ngAnimate", "ui.grid", "ui.grid.pagination"]);

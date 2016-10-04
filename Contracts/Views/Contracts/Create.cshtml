@@ -1,0 +1,36 @@
+﻿@model Contracts.Models.ContractViewModel
+
+<div ng-app="contracts">
+    <div ng-controller="pageController">
+        <div class="view-container" ng-controller="viewController">
+            <div class="table-container border-radius">
+                <div class="mb-20">
+
+                    <button class="btn btn-danger">Programmers with salary above 5000</button>
+                    <button></button>
+                </div>
+                <div ui-grid="gridOptions" ui-grid-pagination class="myGrid"></div>
+                <button class="btn btn-primary narrow-btn transitions mt-15" ng-click="create()">Create a new contract</button>
+            </div>
+        </div>
+        <div class="create-container animate" ng-show="isCreating">
+            @using (Html.BeginForm("Create", "Contracts"))
+            {
+                <div class="close-form cursor-pointer transitions" ng-click="cancel()"></div>
+                <div class="form-group">
+                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = @Html.DisplayNameFor(m => m.Name) })
+                </div>
+                <div class="form-group">
+                    @Html.TextBoxFor(m => m.Experience, new { @class = "form-control", placeholder = @Html.DisplayNameFor(m => m.Experience) })
+                </div>
+                <div class="form-group" select-beautify>
+                    @Html.DropDownListFor(m => m.Type, new SelectList(Model.Types, "Id", "Name"), "", new { @class = "form-control", placeholder = @Html.DisplayNameFor(m => m.Type) })
+                </div>
+                <div class="form-group">
+                    @Html.TextBoxFor(m => m.Salary, new { @class = "form-control", placeholder = @Html.DisplayNameFor(m => m.Salary) })
+                </div>
+                <button type="submit" class="btn btn-primary transitions">Create</button>
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,223 @@
+﻿@import 'https://fonts.googleapis.com/css?family=Lato';
+.transitions, html body .view-container .table-container .myGrid .ui-grid-menu-inner button, html body .create-container form .form-control, html body .create-container form .hc-select-wrapper .hc-select-options, html body .create-container form .hc-select-wrapper .hc-select-options li, .animate {
+  transition: all .25s linear; }
+
+.border-radius, html body .create-container form, html body .create-container form .form-control, html body .create-container form .hc-select-wrapper .hc-select-options, html body .btn-primary {
+  border-radius: 6px; }
+
+.cursor-pointer, html body .create-container form .hc-select-wrapper .hc-select-options li, html body .create-container form .hc-select-wrapper .hc-select-button {
+  cursor: pointer; }
+
+.font-bold, html body .create-container form .close-form:after, html body .create-container form .hc-select-wrapper .hc-select-button:after {
+  font-weight: bold; }
+
+.mt-15 {
+  margin-top: 15px; }
+
+.mb-20 {
+  margin-bottom: 20px; }
+
+*,
+*:focus,
+*:active,
+*:hover {
+  outline: 0 !important; }
+
+html body {
+  font-family: "Lato", sans-serif;
+  padding: 0; }
+  html body .view-container {
+    background: #34495e;
+    position: fixed;
+    z-index: 4;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center; }
+    html body .view-container .table-container {
+      background: #edeff1;
+      padding: 15px;
+      margin: 0 auto;
+      min-width: 75vw; }
+      html body .view-container .table-container .myGrid {
+        height: 300px;
+        width: 100%;
+        border: none; }
+        html body .view-container .table-container .myGrid .ui-grid-top-panel {
+          background: #2980B9; }
+          html body .view-container .table-container .myGrid .ui-grid-top-panel .ui-grid-header-cell {
+            background: #2980B9; }
+            html body .view-container .table-container .myGrid .ui-grid-top-panel .ui-grid-header-cell .ui-grid-filter-container {
+              padding: 0 5px 7px; }
+            html body .view-container .table-container .myGrid .ui-grid-top-panel .ui-grid-header-cell i,
+            html body .view-container .table-container .myGrid .ui-grid-top-panel .ui-grid-header-cell .ui-grid-header-cell-label {
+              color: #fff; }
+            html body .view-container .table-container .myGrid .ui-grid-top-panel .ui-grid-header-cell .ui-grid-column-menu-button {
+              right: -3px;
+              margin: 0;
+              color: #fff;
+              top: 2px; }
+        html body .view-container .table-container .myGrid .ui-grid-menu-inner {
+          border: none !important; }
+          html body .view-container .table-container .myGrid .ui-grid-menu-inner button {
+            box-shadow: none !important;
+            background: #8E44AD;
+            border: none !important;
+            color: #fff; }
+            html body .view-container .table-container .myGrid .ui-grid-menu-inner button:hover {
+              background: #af58d4; }
+        html body .view-container .table-container .myGrid .ui-grid-pager-control .last-bar,
+        html body .view-container .table-container .myGrid .ui-grid-pager-control .first-bar,
+        html body .view-container .table-container .myGrid .ui-grid-pager-control .last-triangle {
+          border-left-color: #fff; }
+        html body .view-container .table-container .myGrid .ui-grid-pager-control .first-triangle {
+          border-right-color: #fff; }
+        html body .view-container .table-container .myGrid .ui-grid-pager-control button {
+          background: #2980B9;
+          border-radius: 0;
+          border: none;
+          margin: 0 5px; }
+        html body .view-container .table-container .myGrid .ui-grid-pager-control .ui-grid-pager-max-pages-number {
+          display: inline-block;
+          top: -3px;
+          position: relative; }
+        html body .view-container .table-container .myGrid input,
+        html body .view-container .table-container .myGrid select {
+          border-radius: 0;
+          border: none; }
+  html body .create-container {
+    z-index: 5;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: #1abc9c;
+    align-items: center;
+    display: flex;
+    height: 0;
+    width: 0;
+    overflow: hidden;
+    margin: 0 auto;
+    animation: appear 0.75s ease-in-out forwards; }
+    html body .create-container.ng-hide-add {
+      animation: disappear 0.75s ease-in-out forwards; }
+    html body .create-container form {
+      background: #edeff1;
+      padding: 15px;
+      max-width: 320px;
+      margin: 0 auto; }
+      html body .create-container form .close-form:after {
+        content: 'X';
+        font-size: 22px;
+        padding: 5px;
+        display: block;
+        float: right;
+        margin: -13px 9px 0 0;
+        color: #E74C3C; }
+      html body .create-container form .form-control {
+        padding: 8px 12px;
+        height: 42px;
+        line-height: 1.467;
+        font-size: 17px;
+        box-shadow: none;
+        border: 2px solid #edeff1;
+        max-width: 100%;
+        width: 286px; }
+        html body .create-container form .form-control:focus {
+          border-color: #1abc9c; }
+      html body .create-container form .hc-select-wrapper {
+        position: relative; }
+        html body .create-container form .hc-select-wrapper select {
+          border: none;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none; }
+        html body .create-container form .hc-select-wrapper .hc-select-options {
+          padding: 8px 0;
+          list-style: none;
+          background: #fff;
+          margin: 0 auto;
+          width: 286px;
+          position: absolute;
+          z-index: 2;
+          visibility: hidden;
+          opacity: 0;
+          margin-top: 5px; }
+          html body .create-container form .hc-select-wrapper .hc-select-options li {
+            padding: 5px 12px;
+            height: 34px;
+            font-size: 17px; }
+            html body .create-container form .hc-select-wrapper .hc-select-options li:hover {
+              background: #2edbb9;
+              color: #fff; }
+          html body .create-container form .hc-select-wrapper .hc-select-options.active {
+            opacity: 1;
+            visibility: visible; }
+        html body .create-container form .hc-select-wrapper .hc-select-button {
+          position: absolute;
+          top: 0;
+          right: 0;
+          left: 0;
+          bottom: 0;
+          z-index: 3; }
+          html body .create-container form .hc-select-wrapper .hc-select-button:after {
+            position: absolute;
+            right: 10px;
+            top: 1px;
+            font-size: 28px;
+            content: '>';
+            color: #1abc9c;
+            transform: rotate(90deg); }
+  html body .btn-primary {
+    background: #1abc9c;
+    color: #fff;
+    padding: 10px 19px;
+    font-size: 17px;
+    line-height: 1.471;
+    width: 100%;
+    border: none;
+    outline: none !important; }
+    html body .btn-primary.narrow-btn {
+      background: #8E44AD; }
+    html body .btn-primary:hover {
+      background: #af58d4; }
+
+@keyframes disappear {
+  0% {
+    border-radius: 0;
+    height: 100%;
+    width: 100%;
+    transform-origin: center center;
+    top: 0;
+    transform: scale(1);
+    opacity: 1; }
+  100% {
+    border-radius: 100%;
+    width: 1px;
+    height: 1px;
+    top: calc(48% - 25px);
+    opacity: 0.2;
+    transform: scale(0.25); } }
+
+@keyframes appear {
+  0% {
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    top: 100%;
+    transform: scale(0.75);
+    opacity: 0; }
+  40% {
+    top: 15%;
+    opacity: 1; }
+  100% {
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    transform: scale(1); } }
+
