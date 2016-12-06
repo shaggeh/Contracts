@@ -1,10 +1,10 @@
-﻿using System.Data.Entity;
+﻿using Contracts.Models;
+using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Web.Http;
 using System.Web.Http.Description;
-using Contracts.Models;
 
 namespace Contracts.Controllers
 {
@@ -64,6 +64,54 @@ namespace Contracts.Controllers
             }
 
             return StatusCode(HttpStatusCode.NoContent);
+        }
+
+        [HttpGet]
+        [Route("api/salaryCalculate/{typeId}/{exp}")]
+        public int CalculateSalary(int typeId, int exp)
+        {
+            var salary = 0;
+
+            switch (typeId)
+            {
+                case 1:
+                    if (exp >= 1 && exp < 2)
+                    {
+                        salary = 2000;
+                    }
+                    else if (exp >= 2 && exp <= 4)
+                    {
+                        salary = 2700;
+                    }
+                    else if (exp > 4)
+                    {
+                        salary = 3200;
+                    }
+
+                    salary = salary + (exp * 100 + (salary / 4));
+
+                    break;
+
+                case 2:
+                    if (exp >= 1 && exp < 3)
+                    {
+                        salary = 2500;
+                    }
+                    else if (exp >= 3 && exp <= 5)
+                    {
+                        salary = 5000;
+                    }
+                    else if (exp > 5)
+                    {
+                        salary = 5500;
+                    }
+
+                    salary = salary + (exp * 125);
+
+                    break;
+            }
+
+            return salary;
         }
 
         // POST: api/Api

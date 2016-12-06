@@ -1,5 +1,5 @@
 ﻿@import 'https://fonts.googleapis.com/css?family=Lato';
-.transitions, html body .view-container .table-container .myGrid .ui-grid-menu-inner button, html body .create-container form .form-control, html body .create-container form .hc-select-wrapper .hc-select-options, html body .create-container form .hc-select-wrapper .hc-select-options li, .animate {
+.transitions, html body .view-container .table-container .myGrid .ui-grid-menu-inner button, html body .create-container form .form-control, html body .create-container form .hc-select-wrapper .hc-select-options, html body .create-container form .hc-select-wrapper .hc-select-options li, .animate, .form-group.animate:after {
   transition: all .25s linear; }
 
 .border-radius, html body .create-container form, html body .create-container form .form-control, html body .create-container form .hc-select-wrapper .hc-select-options, html body .btn-primary {
@@ -42,7 +42,7 @@ html body {
       margin: 0 auto;
       min-width: 75vw; }
       html body .view-container .table-container .myGrid {
-        height: 300px;
+        height: 50vh;
         width: 100%;
         border: none; }
         html body .view-container .table-container .myGrid .ui-grid-top-panel {
@@ -97,8 +97,6 @@ html body {
     background: #1abc9c;
     align-items: center;
     display: flex;
-    height: 0;
-    width: 0;
     overflow: hidden;
     margin: 0 auto;
     animation: appear 0.75s ease-in-out forwards; }
@@ -215,9 +213,48 @@ html body {
     top: 15%;
     opacity: 1; }
   100% {
-    border-radius: 0;
-    width: 100%;
-    height: 100%;
     top: 0;
-    transform: scale(1); } }
+    opacity: 1; } }
+
+.form-group.animate:after {
+  content: '\f021';
+  color: #1abc9c;
+  font-family: 'FontAwesome';
+  font-size: 20px;
+  margin: 0 auto;
+  display: block;
+  width: 28px;
+  height: 28px;
+  text-align: center;
+  animation: rotate .5s linear infinite;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden; }
+
+.form-group.animate.ng-enter:after {
+  opacity: 1;
+  max-height: 30px; }
+
+.form-group.animate.ng-enter input {
+  animation: input-appear 2s linear forwards; }
+
+@keyframes input-appear {
+  0%,
+  50% {
+    opacity: 0;
+    overflow: hidden;
+    visibility: hidden;
+    max-height: 0;
+    padding: 0; }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    max-height: 42px;
+    padding: 8px 12px; } }
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0); }
+  100% {
+    transform: rotate(360deg); } }
 

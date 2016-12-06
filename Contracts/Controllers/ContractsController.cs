@@ -1,6 +1,6 @@
-﻿using System.Linq;
+﻿using Contracts.Models;
+using System.Linq;
 using System.Web.Mvc;
-using Contracts.Models;
 
 namespace Contracts.Controllers
 {
@@ -38,7 +38,7 @@ namespace Contracts.Controllers
             _context.Contracts.Add(contract);
             _context.SaveChanges();
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Create", "Contracts");
         }
     }
 }

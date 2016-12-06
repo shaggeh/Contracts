@@ -5,29 +5,40 @@
         <div class="view-container" ng-controller="viewController">
             <div class="table-container border-radius">
                 <div class="mb-20">
-
-                    <button class="btn btn-danger">Programmers with salary above 5000</button>
-                    <button></button>
+                    <button class="btn btn-danger">Programmers with 5 or more years of experience</button>
+                    <button class="btn btn-danger" ng-click="salaryFilter()">Contracts with salary above 5000</button>
                 </div>
                 <div ui-grid="gridOptions" ui-grid-pagination class="myGrid"></div>
-                <button class="btn btn-primary narrow-btn transitions mt-15" ng-click="create()">Create a new contract</button>
+                <button class="btn btn-primary narrow-btn transitions mt-15" ng-click="pageCtrl.create()">Create a new contract</button>
             </div>
         </div>
-        <div class="create-container animate" ng-show="isCreating">
-            @using (Html.BeginForm("Create", "Contracts"))
+        <div class="create-container animate" ng-show="isCreating" ng-controller="createController">
+            @using (Html.BeginForm("Create", "Contracts", FormMethod.Post, new { @name = "createForm" }))
             {
-                <div class="close-form cursor-pointer transitions" ng-click="cancel()"></div>
+                <div class="close-form cursor-pointer transitions" ng-click="pageCtrl.cancel()"></div>
                 <div class="form-group">
                     @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = @Html.DisplayNameFor(m => m.Name) })
                 </div>
                 <div class="form-group">
-                    @Html.TextBoxFor(m => m.Experience, new { @class = "form-control", placeholder = @Html.DisplayNameFor(m => m.Experience) })
+                    @Html.TextBoxFor(m => m.Experience, new
+               {
+                   @class = "form-control",
+                   placeholder = @Html.DisplayNameFor(m => m.Experience),
+                   ng_model = "experienceField",
+                   ng_blur = "createCtrl.salaryTrigger(createForm)"
+               })
                 </div>
                 <div class="form-group" select-beautify>
-                    @Html.DropDownListFor(m => m.Type, new SelectList(Model.Types, "Id", "Name"), "", new { @class = "form-control", placeholder = @Html.DisplayNameFor(m => m.Type) })
+                    @Html.DropDownListFor(m => m.Type, new SelectList(Model.Types, "Id", "Name"), "", new
+               {
+                   @class = "form-control",
+                   placeholder = @Html.DisplayNameFor(m => m.Type),
+                   ng_model = "positionField",
+                   ng_change = "createCtrl.salaryTrigger(createForm)"
+               })
                 </div>
-                <div class="form-group">
-                    @Html.TextBoxFor(m => m.Salary, new { @class = "form-control", placeholder = @Html.DisplayNameFor(m => m.Salary) })
+                <div class="form-group animate transitions" ng-if="calculatedSalary">
+                    @Html.TextBoxFor(m => m.Salary, new { @class = "form-control", placeholder = @Html.DisplayNameFor(m => m.Salary), ng_value = "calculatedSalary" })
                 </div>
                 <button type="submit" class="btn btn-primary transitions">Create</button>
             }

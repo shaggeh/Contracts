@@ -22,18 +22,20 @@ namespace Contracts
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js",
                       "~/Scripts/angular.min.js",
-                      "~/Scripts/angular-animate.min.js"));
+                      "~/Scripts/angular-animate.min.js",
+                      "~/Scripts/ui-grid.min.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/Content/bootstrap.min.css",
                       "~/Content/site.css",
-                      "~/Content/css.min.css"));
+                      "~/Content/css.min.css",
+                      "~/Content/font-awesome.min.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
-                "~/Client/*.js",
                 "~/Client/controllers/*.js",
                 "~/Client/services/*.js",
-                "~/Client/directives/*.js"));
+                "~/Client/directives/*.js",
+                "~/Client/*.js"));
         }
     }
 }
