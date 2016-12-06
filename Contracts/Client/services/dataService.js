@@ -22,3 +22,4 @@ var Contracts;
         })(Services = Core.Services || (Core.Services = {}));
     })(Core = Contracts.Core || (Contracts.Core = {}));
 })(Contracts || (Contracts = {}));
+//# sourceMappingURL=dataService.js.map

@@ -30,3 +30,4 @@ var Contracts;
         })(Controllers = Core.Controllers || (Core.Controllers = {}));
     })(Core = Contracts.Core || (Contracts.Core = {}));
 })(Contracts || (Contracts = {}));
+//# sourceMappingURL=createController.js.map

@@ -9,6 +9,7 @@ var Contracts;
                 function ViewController($scope, dataService) {
                     this.$scope = $scope;
                     this.dataService = dataService;
+                    this.$scope.viewCtrl = this;
                     this.setGridOptions();
                     this.getContracts();
                 }
@@ -19,10 +20,17 @@ var Contracts;
                         _this.$scope.gridOptions.data = response.data;
                     }, function (e) { console.error(e); });
                 };
-                ViewController.prototype.salaryFilter = function () {
+                ViewController.prototype.gridFilter = function (type) {
                     for (var i = 0; i < this.$scope.gridApi.grid.columns.length; i++) {
-                        if (this.$scope.gridApi.grid.columns[i].field === "Salary") {
-                            var arr = this.$scope.gridApi.grid.columns[i].filters[0].term = 5000;
+                        if (type === 0) {
+                            if (this.$scope.gridApi.grid.columns[i].field === "Salary") {
+                                var arr = this.$scope.gridApi.grid.columns[i].filters[0].term = 5000;
+                            }
+                        }
+                        else if (type === 1) {
+                            if (this.$scope.gridApi.grid.columns[i].field === "Experience") {
+                                var arr = this.$scope.gridApi.grid.columns[i].filters[0].term = 5;
+                            }
                         }
                     }
                 };
@@ -58,3 +66,4 @@ var Contracts;
         })(Controllers = Core.Controllers || (Core.Controllers = {}));
     })(Core = Contracts.Core || (Contracts.Core = {}));
 })(Contracts || (Contracts = {}));
+//# sourceMappingURL=viewController.js.map

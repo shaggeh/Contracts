@@ -5,10 +5,9 @@
         <div class="view-container" ng-controller="viewController">
             <div class="table-container border-radius">
                 <div class="mb-20">
-                    <button class="btn btn-danger">Programmers with 5 or more years of experience</button>
-                    <button class="btn btn-danger" ng-click="salaryFilter()">Contracts with salary above 5000</button>
+                    <button class="btn btn-danger" ng-click="viewCtrl.gridFilter(1)">Programmers with 5 or more years of experience</button>
+                    <button class="btn btn-danger" ng-click="viewCtrl.gridFilter(0)">Contracts with salary above 5000</button>
                 </div>
-                <div ui-grid="gridOptions" ui-grid-pagination class="myGrid"></div>
                 <button class="btn btn-primary narrow-btn transitions mt-15" ng-click="pageCtrl.create()">Create a new contract</button>
             </div>
         </div>
@@ -40,7 +39,7 @@
                 <div class="form-group animate transitions" ng-if="calculatedSalary">
                     @Html.TextBoxFor(m => m.Salary, new { @class = "form-control", placeholder = @Html.DisplayNameFor(m => m.Salary), ng_value = "calculatedSalary" })
                 </div>
-                <button type="submit" class="btn btn-primary transitions">Create</button>
+                <button type="submit" class="btn btn-primary transitions" ng-if="calculatedSalary">Create</button>
             }
         </div>
     </div>

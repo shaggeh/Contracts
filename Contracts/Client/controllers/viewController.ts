@@ -25,6 +25,7 @@
         constructor($scope: IViewScope, dataService: dataService) {
             this.$scope = $scope;
             this.dataService = dataService;
+            this.$scope.viewCtrl = this;
             this.setGridOptions();
             this.getContracts();
         }
@@ -37,10 +38,16 @@
                 (e) => { console.error(e); });
         }
 
-        salaryFilter(): void {
+        gridFilter(type: number): void {
             for (var i = 0; i < this.$scope.gridApi.grid.columns.length; i++) {
-                if (this.$scope.gridApi.grid.columns[i].field === "Salary") {
-                    var arr = this.$scope.gridApi.grid.columns[i].filters[0].term = 5000;
+                if (type === 0) {
+                    if (this.$scope.gridApi.grid.columns[i].field === "Salary") {
+                        var arr = this.$scope.gridApi.grid.columns[i].filters[0].term = 5000;
+                    }    
+                } else if (type === 1) {
+                    if (this.$scope.gridApi.grid.columns[i].field === "Experience") {
+                        var arr = this.$scope.gridApi.grid.columns[i].filters[0].term = 5;
+                    }    
                 }
             }
         };
