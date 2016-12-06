@@ -8,6 +8,7 @@
                     <button class="btn btn-danger" ng-click="viewCtrl.gridFilter(1)">Programmers with 5 or more years of experience</button>
                     <button class="btn btn-danger" ng-click="viewCtrl.gridFilter(0)">Contracts with salary above 5000</button>
                 </div>
+                <div ui-grid="gridOptions" ui-grid-pagination class="myGrid"></div>
                 <button class="btn btn-primary narrow-btn transitions mt-15" ng-click="pageCtrl.create()">Create a new contract</button>
             </div>
         </div>

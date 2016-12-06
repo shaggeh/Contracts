@@ -1,10 +1,10 @@
-﻿using Contracts.Models;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Web.Http;
 using System.Web.Http.Description;
+using Contracts.Models;
 
 namespace Contracts.Controllers
 {
@@ -130,7 +130,8 @@ namespace Contracts.Controllers
         }
 
         // DELETE: api/Api/5
-        [ResponseType(typeof(Contract))]
+        [HttpGet]
+        [Route("api/deleteContract/{Id}")]
         public IHttpActionResult DeleteContract(int id)
         {
             Contract contract = db.Contracts.Find(id);
