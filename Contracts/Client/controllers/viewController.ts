@@ -43,11 +43,11 @@
                 if (type === 0) {
                     if (this.$scope.gridApi.grid.columns[i].field === "Salary") {
                         var arr = this.$scope.gridApi.grid.columns[i].filters[0].term = 5000;
-                    }    
+                    }
                 } else if (type === 1) {
                     if (this.$scope.gridApi.grid.columns[i].field === "Experience") {
                         var arr = this.$scope.gridApi.grid.columns[i].filters[0].term = 5;
-                    }    
+                    }
                 }
             }
         };
